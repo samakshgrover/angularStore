@@ -68,6 +68,10 @@
   font-weight: 700;
 }
 
+.btn:disabled{
+  background-color: #909090;
+}
+
 .total {
   /* margin-top: 25px; */
   width: 250px;

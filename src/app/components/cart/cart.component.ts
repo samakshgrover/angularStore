@@ -8,8 +8,7 @@ import { StoreService } from 'src/app/services/store.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  cart: CartProduct[] = this.store.getList();
-  cart2: CartProduct[] = [];
+  cart: CartProduct[] = this.store.getCart();
   length: number = this.cart.length;
   total: number = this.cart.reduce((acc, curr) => {
     return acc + curr.quantity * curr.price;
@@ -19,17 +18,23 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.store.subject.subscribe({
-      next: (res) => (this.cart2 = res),
+      next: (res) => {
+        this.cart = res;
+        this.length = this.cart.length;
+        this.total =parseFloat( this.cart.reduce((acc, curr) => {
+          return acc + curr.quantity * curr.price;
+        }, 0).toFixed(2));
+      },
     });
   }
 
   removeAll() {
     console.log('clicked');
-    this.store.removeAll();
-    this.cart = this.store.getList();
-    this.length = this.cart.length;
-    this.total = this.cart.reduce((acc, curr) => {
-      return acc + curr.quantity * curr.price;
-    }, 0);
+    this.store.emptyCart();
   }
+
+  handleCheckout(){
+    
+  }
+
 }

@@ -6,43 +6,33 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class StoreService {
-  private list: CartProduct[] = [];
+  private cart: CartProduct[] = [];
   public subject = new Subject<CartProduct[]>();
 
   constructor() {}
 
-  notify(product: CartProduct) {
-    this.addToList(product);
-    this.subject.next(this.list);
+  getCart() {
+    return this.cart;
   }
 
-  getList() {
-    return this.list;
-  }
-
-  changeQuantity(id: number, quant: number): void {
-    this.list.forEach((el) => {
-      if (el.id === id) {
-        el.quantity = quant;
-        return;
-      }
-    });
-  }
-
-  addToList(product: CartProduct) {
-    if (product.quantity == 0) {
+  private addToCart(product: CartProduct) {
+    if (!product.quantity) {
       alert('please provide quantity before adding to cart');
-      console.log(this.getList());
       return;
     }
 
-    this.list = this.list.filter((el) => el.id !== product.id);
-
-    this.list.push(product);
-    console.log(this.getList());
+    this.cart = this.cart.filter((el) => el.id !== product.id);
+    this.cart.push(product);
+    alert('Product Added To Cart');
   }
 
-  removeAll() {
-    this.list = [];
+  addProduct(product: CartProduct) {
+    this.addToCart(product);
+    this.subject.next(this.cart);
+  }
+
+  emptyCart() {
+    this.cart = [];
+    this.subject.next(this.cart);
   }
 }

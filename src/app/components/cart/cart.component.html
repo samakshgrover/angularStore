@@ -21,6 +21,8 @@
       </div>
       <div class="total-amount">${{ total }}</div>
     </div>
-    <button class="btn">Checkout</button>
+    <button class="btn" [disabled]="cart.length === 0 ? true : null" (click)="handleCheckout()">
+      Checkout
+    </button>
   </div>
 </div>

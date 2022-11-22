@@ -7,7 +7,7 @@ import { StoreService } from 'src/app/services/store.service';
   templateUrl: './cart-product.component.html',
   styleUrls: ['./cart-product.component.css'],
 })
-export class CartProductComponent {
+export class CartProductComponent implements OnInit {
   @Input() item: CartProduct = {
     id: 0,
     quantity: 0,
@@ -19,16 +19,17 @@ export class CartProductComponent {
 
   constructor(private store: StoreService) {}
 
-  increese() {
+  ngOnInit(): void {}
+
+  handleClickPlus() {
     this.item.quantity++;
-    this.store.addToList(this.item);
+    this.store.addProduct({ ...this.item });
   }
 
-  decreese() {
-    if (this.item.quantity > 0) {
+  handleClickMinus() {
+    if (this.item.quantity > 1) {
       this.item.quantity--;
-      this.store.addToList(this.item);
-      // this.store.changeQuantity(this.item.id, this.item.quantity);
+      this.store.addProduct({ ...this.item });
     }
   }
 }

@@ -7,9 +7,9 @@
   </div>
   <div class="name">{{item.name}}</div>
   <div class="quantity">
-    <div class="plus" (click)="increese()" >+</div>
+    <div class="plus" (click)="handleClickPlus()" >+</div>
     <div class="count">{{item.quantity}}</div>
-    <div class="minus" (click)="decreese()" >-</div>
+    <div class="minus" (click)="handleClickMinus()" >-</div>
   </div>
   <div class="price">${{item.price}}</div>
 </div>

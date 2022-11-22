@@ -12,7 +12,6 @@ export class ProductListComponent implements OnInit {
   constructor(private http: HttpService) {}
 
   ngOnInit(): void {
-    // this.products = this.http.getDataTemp();
     this.http.getData().subscribe((res) => (this.products = res));
   }
 }

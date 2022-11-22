@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/model/product';
-import { NgModel } from '@angular/forms';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -9,15 +8,21 @@ import { StoreService } from 'src/app/services/store.service';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  @Input() product: any;
+  @Input() product: Product = {
+    id: 0,
+    name: '',
+    price: 0,
+    url: '',
+    description: '',
+  };
   quantity: number = 0;
 
   constructor(private store: StoreService) {}
 
   ngOnInit(): void {}
 
-  onSubmit(form: any) {
-    this.store.addToList({ ...this.product, ...form });
-    this.store.subject.next(this.store.getList());
+  onSubmit(quantity: any) {
+    console.log(quantity)
+    this.store.addProduct({ ...this.product, ...quantity });
   }
 }
