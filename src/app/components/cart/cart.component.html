@@ -1,0 +1,26 @@
+<div class="cart-container">
+  <div class="header">
+    <h3>Shopping Cart</h3>
+    <h5 (click)="removeAll()">Remove all</h5>
+  </div>
+  <div class="items">
+    <div *ngIf="length !== 0">
+      <app-cart-product
+        *ngFor="let item of cart"
+        [item]="item"
+      ></app-cart-product>
+    </div>
+    <div *ngIf="length == 0">No Product in cart</div>
+  </div>
+  <hr />
+  <div class="footer">
+    <div class="total">
+      <div>
+        <div class="sub-total">Sub-Total</div>
+        <div class="items-count">{{ length }} items</div>
+      </div>
+      <div class="total-amount">${{ total }}</div>
+    </div>
+    <button class="btn">Checkout</button>
+  </div>
+</div>

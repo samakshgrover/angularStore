@@ -1,0 +1,42 @@
+.product-container {
+  font-size: 16px;
+  font-weight: 500;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-photo {
+  height: 300px;
+  width: auto;
+}
+.common {
+    
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.product-form input {
+  width: 50%;
+  height: 25px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.product-form button {
+  width: 100%;
+  padding: 15px 15px;
+  font-size: 15px;
+  color: #fff;
+  background-color: rgba(1, 154, 255, 0.856);
+  border: none;
+  cursor: pointer;
+}

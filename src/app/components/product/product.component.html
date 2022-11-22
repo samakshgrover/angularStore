@@ -1,0 +1,13 @@
+<div class="product-container">
+  <img class="product-photo" [src]="product.url" alt="product-image" />
+  <div class="name common">
+    {{ product.name }}
+  </div>
+  <div class="price common">
+    {{ product.price }}
+  </div>
+  <form class="product-form" (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+    <input type="number" name="quantity" [value]="quantity" [(ngModel)]="quantity" />
+    <button type="submit">Add To Cart</button>
+  </form>
+</div>
