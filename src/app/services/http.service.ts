@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-// import {} from '@angular/'
-import { data } from 'src/assets/db';
 import { Observable } from 'rxjs';
 import { Product } from '../model/product';
 
@@ -15,7 +13,7 @@ export class HttpService {
     return this.http.get<Product[]>('http://localhost:3000/products');
   }
 
-  getDataTemp() {
-    return data.products;
+  getProduct(data: any) {
+    return this.http.get<Product>(`http://localhost:3000/products/${data.id}`);
   }
 }

@@ -1,1 +1,15 @@
-<p>product-detail works!</p>
+<div class="product-detail">
+  <div class="img">
+    <img [src]="product.url" alt="product photo" />
+  </div>
+  <div class="form">
+    <div>
+      <div class="name">{{ product.name }}</div>
+      <div class="price">{{ product.price }}</div>
+      <div class="description">{{product.description}}</div>
+    </div>
+    <input type="number" [(ngModel)]="quantity" />
+    <button class="cart" (click)="addToCart()">Add To Cart</button>
+    <div class="go-back" (click)="goToProducts()">&larr;Go To product List</div>
+  </div>
+</div>

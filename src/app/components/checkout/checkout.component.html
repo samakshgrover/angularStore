@@ -1,1 +1,51 @@
-<p>checkout works!</p>
+<div class="checkout-container">
+  <div class="checkout-form">
+    <form #form="ngForm" (submit)="handleSubmit(form)">
+      <div>
+        <input
+          type="text"
+          class="name"
+          placeholder="Name"
+          ngModel
+          #name="ngModel"
+          required
+          minlength="5"
+          name="name"
+        /><span *ngIf="!name.valid && name.touched"
+          >Please Enter a username more than 5 character long</span
+        >
+      </div>
+      <div>
+        <input
+          type="text"
+          class="address"
+          placeholder="Address"
+          [(ngModel)]="user.address"
+          #address="ngModel"
+          required
+          minlength="10"
+          name="address"
+        /><span *ngIf="!address.valid && address.touched"
+          >Please Enter a valid location</span
+        >
+      </div>
+      <div>
+        <input
+          type="text"
+          class="card"
+          placeholder="credit card 16 digits"
+          [(ngModel)]="user.creditCard"
+          #card="ngModel"
+          required
+          minlength="16"
+          maxlength="16"
+          name="cresitCard"
+        /><span *ngIf="!card.valid && card.touched"
+          >Please Enter a valid credit card</span
+        >
+      </div>
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+      <!-- <input type="submit" value="submit" disabled/> -->
+    </form>
+  </div>
+</div>

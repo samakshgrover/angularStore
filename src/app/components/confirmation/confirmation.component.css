@@ -1,0 +1,16 @@
+.confirm-container {
+  width: 100%;
+  margin: 50px;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm {
+}
+
+.confirm div {
+  font-size: 16px;
+  font-weight: 500;
+}

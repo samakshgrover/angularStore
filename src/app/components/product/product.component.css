@@ -12,9 +12,7 @@
 .product-photo {
   height: 300px;
   width: auto;
-}
-.common {
-    
+  cursor: pointer;
 }
 
 .product-form {
