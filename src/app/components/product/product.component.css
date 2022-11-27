@@ -38,3 +38,17 @@
   border: none;
   cursor: pointer;
 }
+
+.value{
+  width:80px;
+  padding: 10px 20px;
+  background-color: #0b88ee;
+  /* text-align: center; */
+  font-size: 16px;
+}
+
+option{
+  /* text-align: center; */
+  padding: 20px 20px;
+  /* font-size: 16px; */
+}

@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 From the root directory of the project run `cd backend` in the terminal.<br>
 And than run `npm install` to install dependencies.<br>
-Now to start the server run `npm run json:server`<br>
+Now to start the server run `npm run server`<br>
 The server by default will start lisenning on `http://localhost:3000`
 
 ## Development server

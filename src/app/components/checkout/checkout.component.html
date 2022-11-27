@@ -1,6 +1,7 @@
 <div class="checkout-container">
   <div class="checkout-form">
     <form #form="ngForm" (submit)="handleSubmit(form)">
+      
       <div>
         <input
           type="text"
@@ -15,6 +16,7 @@
           >Please Enter a username more than 5 character long</span
         >
       </div>
+
       <div>
         <input
           type="text"
@@ -29,9 +31,10 @@
           >Please Enter a valid location</span
         >
       </div>
+
       <div>
         <input
-          type="text"
+          type="number"
           class="card"
           placeholder="credit card 16 digits"
           [(ngModel)]="user.creditCard"
@@ -45,7 +48,6 @@
         >
       </div>
       <button type="submit" [disabled]="!form.valid">Submit</button>
-      <!-- <input type="submit" value="submit" disabled/> -->
     </form>
   </div>
 </div>

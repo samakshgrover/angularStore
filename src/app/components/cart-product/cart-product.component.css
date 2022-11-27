@@ -46,3 +46,17 @@
   font-size: 24px;
   font-weight: 500;
 }
+
+sub {
+  font-size: 14px;
+  font-weight: 200;
+  text-decoration: underline;
+  color: #e44c4c;
+  cursor: pointer;
+}
+
+.quant{
+  width:60px;
+  padding: 10px 20px;
+  font-size: 16px;
+}

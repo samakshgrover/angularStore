@@ -35,4 +35,9 @@ export class StoreService {
     this.cart = [];
     this.subject.next(this.cart);
   }
+
+  removeProduct(id: number) {
+    this.cart = this.cart.filter((pro) => pro.id != id);
+    this.subject.next(this.cart);
+  }
 }

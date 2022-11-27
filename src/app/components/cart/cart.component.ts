@@ -21,20 +21,24 @@ export class CartComponent implements OnInit {
       next: (res) => {
         this.cart = res;
         this.length = this.cart.length;
-        this.total =parseFloat( this.cart.reduce((acc, curr) => {
-          return acc + curr.quantity * curr.price;
-        }, 0).toFixed(2));
+        this.total = parseFloat(
+          this.cart
+            .reduce((acc, curr) => {
+              return acc + curr.quantity * curr.price;
+            }, 0)
+            .toFixed(2)
+        );
       },
     });
   }
 
-  removeAll() {
+  removeAllProducts() {
     console.log('clicked');
     this.store.emptyCart();
   }
 
-  handleCheckout(){
-    
+  removeProduct(event: number) {
+    // console.log('clicked');
+    this.store.removeProduct(event);
   }
-
 }

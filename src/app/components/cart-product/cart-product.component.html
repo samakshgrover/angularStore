@@ -1,15 +1,20 @@
 <div class="item">
   <div class="img-box">
-    <img
-      [src]='item.url'
-      alt="product photo"
-    />
+    <img [src]="item.url" alt="product photo" />
   </div>
-  <div class="name">{{item.name}}</div>
-  <div class="quantity">
-    <div class="plus" (click)="handleClickPlus()" >+</div>
-    <div class="count">{{item.quantity}}</div>
-    <div class="minus" (click)="handleClickMinus()" >-</div>
+
+  <div class="name">
+    <div>{{ item.name }}</div>
+    <sub (click)="removeItem()">Remove</sub>
   </div>
-  <div class="price">${{item.price}}</div>
+
+  <!-- <div class="quantity">
+    <div class="plus" (click)="handleClickPlus()">+</div>
+    <div class="count">{{ item.quantity }}</div>
+    <div class="minus" (click)="handleClickMinus()">-</div>
+  </div> -->
+
+  <input type="number" [(ngModel)]="item.quantity" class="quant" (ngModelChange)="handleChange($event)" />
+
+  <div class="price">${{ item.price }}</div>
 </div>

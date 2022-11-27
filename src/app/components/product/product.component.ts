@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartProduct } from 'src/app/model/cart-product';
 import { Product } from 'src/app/model/product';
-import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-product',
@@ -17,14 +17,15 @@ export class ProductComponent implements OnInit {
     description: '',
   };
   quantity: number = 0;
+  @Output() add: EventEmitter<CartProduct> = new EventEmitter();
 
-  constructor(private store: StoreService, private router: Router) {}
+  constructor( private router: Router) {}
 
   ngOnInit(): void {}
 
-  onSubmit(quantity: any) {
-    console.log(quantity);
-    this.store.addProduct({ ...this.product, ...quantity });
+  onSubmit(quantity: number) {
+    if (quantity < 0) quantity = quantity * -1;
+    this.add.emit({ ...this.product, quantity });
   }
 
   imageClick() {
